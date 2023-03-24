@@ -1,0 +1,1 @@
+Feature: Managing goods and its availability
