@@ -1,31 +1,40 @@
 Feature: User accounts management
 
-Scenario: Register an user accounts
-    Given User is not logged in
-    And User is on the registration page
-    When User fills out the registration form
-    And User clicks on the "Continue" button
-    Then Success message "Your Account Has Been Created!" is displayed
-    And User is logged in
+Scenario: Viewing customer accounts (27)
+    Given User is logged in as an admin
+    And User is on the admin dashboard
+    And There are registered users
+    When User clicks on "Customers" in the sidebar
+    Then List of registered users is displayed
 
-Scenario: Login to an user account
-    Given User is not logged in
-    And User is on the login page
-    When User fills out valid credentials
-    And User clicks on the "Login" button
-    Then User is logged in
+Scenario: Viewing customer details (28)
+    Given User is logged in as an admin
+    And User is on the Customers screen
+    When User clicks on the "Edit" link
+    Then Customer edit form is displayed
 
-Scenario: Try to login with invalid credentials
-    Given User is not logged in
-    And User is on the login page
-    When User fills out invalid credentials
-    And User clicks on the "Login" button
-    Then Error message "Warning: No match for E-Mail Address and/or Password." is displayed
-    And User is not logged in
+Scenario: Editing customer details (29)
+    Given User is logged in as an admin
+    And User is on the Customer details screen
+    When User changes the customer details
+    And User clicks on the "Save" button
+    Then Customer details are updated
 
-Scenario: Logout from an user account
-    Given User is logged in
-    And User is on the home page
-    When User clicks on the "Logout" link in "My Account" section
-    Then "Account Logout" page is displayed
-    And User is not logged in
+Scenario: Viewing customer's orders (30)
+    Given User is logged in as an admin
+    And User is on the Customer details screen
+    When User clicks on the "Orders" link
+    Then List of customer's orders is displayed
+
+Scenario: Logging in as customer (31)
+    Given User is logged in as an admin
+    And User is on the Customers screen
+    When User clicks on the "Login as user" link
+    Then User is logged in as the selected user
+
+Scenario: Deleting customer (32)
+    Given User is logged in as an admin
+    And User is on the Customers screen
+    When User clicks checks the checkmark next to the customer to be deleted
+    And User clicks the delete button
+    Then Customer is not listed on the Customers screen

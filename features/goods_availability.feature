@@ -1,19 +1,19 @@
 Feature: Managing goods and its availability
 
-Scenario: Viewing list of products
+Scenario: Viewing list of products (21)
     Given User is logged in as an admin
     And User is on the admin dashboard
     When User clicks on the "Products" tab
     Then List of products with detauls is displayed
 
-Scenario: Filtering list of products
+Scenario: Filtering list of products (22)
     Given User is logged in as an admin
     And User is on the "Products" tab
     When User fills in the "Product name" field in the filter
     And User clicks on the "Filter" button
     Then List of products matching the filter is displayed
 
-Scenario: Creating a new product
+Scenario: Creating a new product (23)
     Given User is logged in as an admin
     And User is on the "Products" tab
     When User clicks on the "Add New" button
@@ -21,14 +21,14 @@ Scenario: Creating a new product
     And User clicks on the "Save" button
     Then The product is created
 
-Scenario: Deleting a product
+Scenario: Deleting a product (24)
     Given User is logged in as an admin
     And User is on the "Products" tab
     When User checks the checkmark next to the product to be deleted
     And User clicks on the "Delete" button
     Then The product is deleted
 
-Scenario: Updating product details
+Scenario: Updating product details (25)
     Given User is logged in as an admin
     And User is on the "Products" tab
     When User clicks on the "Edit" button next to the product to be updated
@@ -36,7 +36,7 @@ Scenario: Updating product details
     And User clicks on the "Save" button
     Then The product shows the updated details
 
-Scenario: Updating product availability
+Scenario: Updating product availability (26)
     Given User is logged in as an admin
     And User is on the "Products" tab
     And Product has some quantity in stock
